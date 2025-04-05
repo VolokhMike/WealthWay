@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/about-styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+{% block title %}About - WealthWay{% endblock %}
+		
+{% block content %}
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="fade-in">About WealthWay</h1>
+                    <p class="fade-in">We're on a mission to transform the digital landscape with innovative solutions that empower businesses and individuals alike.</p>
+                </div>
+            </div>
+            <div class="hero-shape"></div>
+        </section>
+
+        <section class="section story-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Story</h2>
+                    <p>How it all began and where we're headed</p>
+                </div>
+                <div class="story-content">
+                    <div class="story-image reveal-left">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Horizon team working together">
+                    </div>
+                    <div class="story-text reveal-right">
+                        <h3>From Humble Beginnings</h3>
+                        <p>Founded in 2018, Horizon started as a small team of passionate developers and designers with a shared vision: to create digital experiences that make a difference.</p>
+                        <p>What began as a modest startup in a co-working space has evolved into a thriving company with a global presence, serving clients across industries and continents.</p>
+                        <p>Our journey has been defined by continuous innovation, unwavering commitment to quality, and a deep understanding of our clients' needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Mission & Values</h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                <div class="mission-statement reveal-bottom">
+                    <blockquote>
+                        "To empower businesses through innovative digital solutions that drive growth, enhance user experiences, and create lasting value."
+                    </blockquote>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card reveal-bottom" data-delay="100">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We believe in honesty, transparency, and doing what's right, even when it's challenging.</p>
+                    </div>
+                    <div class="value-card reveal-bottom" data-delay="200">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" fill="currentColor"/>
+                                <path d="M7 12h2v5H7zm4-7h2v12h-2zm4 4h2v8h-2z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We constantly push boundaries, embrace new technologies, and think outside the box.</p>
+                    </div>
+                    <div class="value-card reveal-bottom" data-delay="300">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Collaboration</h3>
+                        <p>We work together as a team, valuing diverse perspectives and collective intelligence.</p>
+                    </div>
+                    <div class="value-card reveal-bottom" data-delay="400">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5h-1.5V14h-1v3H8v-3H7v4.5H5.5v-5c0-.55.45-1 1-1H11c.55 0 1 .45 1 1v5zm3.5 0H14v-6h3.5c.55 0 1 .45 1 1V16c0 .55-.45 1-1 1h-2v1.5zm-1-4.5H17v1h-2.5v-1z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>We strive for the highest quality in everything we do, never settling for mediocrity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet Our Team</h2>
+                    <p>The talented individuals behind our success</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card reveal-bottom">
+                        <div class="team-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Sarah Johnson">
+                        </div>
+                        <div class="team-info">
+                            <h3>Sarah Johnson</h3>
+                            <p class="team-role">Founder & CEO</p>
+                            <p class="team-bio">With over 15 years of experience in tech, Sarah leads our company with vision and passion.</p>
+                            <div class="team-social">
+                                <a href="#" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="Twitter">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card reveal-bottom" data-delay="100">
+                        <div class="team-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Michael Chen">
+                        </div>
+                        <div class="team-info">
+                            <h3>Michael Chen</h3>
+                            <p class="team-role">CTO</p>
+                            <p class="team-bio">Michael's technical expertise and innovative thinking drive our product development.</p>
+                            <div class="team-social">
+                                <a href="#" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="GitHub">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card reveal-bottom" data-delay="200">
+                        <div class="team-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Emily Rodriguez">
+                        </div>
+                        <div class="team-info">
+                            <h3>Emily Rodriguez</h3>
+                            <p class="team-role">Design Director</p>
+                            <p class="team-bio">Emily's creative vision ensures our products are both beautiful and functional.</p>
+                            <div class="team-social">
+                                <a href="#" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="Dribbble">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.66 4.66c1.16 1.41 1.87 3.21 1.9 5.18-1.19-.26-2.38-.39-3.55-.39-.79 0-1.57.07-2.33.2-.23-.6-.46-1.18-.73-1.74 1.73-.71 3.36-1.78 4.71-3.25zM12 4c1.89 0 3.63.66 5 1.76-1.19 1.33-2.67 2.31-4.24 2.92-.72-1.3-1.53-2.55-2.4-3.75.53-.07 1.07-.11 1.64-.11zM6.15 5.72c.9 1.15 1.74 2.37 2.48 3.64-2.35.63-4.96.96-7.63.96 1.09-2.04 2.94-3.64 5.15-4.6zM4 12v-.2c3.14 0 6.11-.39 8.81-1.08.18.39.35.78.5 1.18-3.44 1.03-6.23 3.21-8.08 6.12C4.44 16.55 4 14.35 4 12zm8 8c-1.74 0-3.34-.56-4.65-1.5 1.68-2.77 4.25-4.81 7.4-5.71.66 1.94 1.2 3.96 1.61 6.03-1.36.78-2.94 1.18-4.36 1.18zm6.27-1.85c-.36-1.87-.84-3.69-1.44-5.5.66-.1 1.34-.16 2.02-.16 1.05 0 2.1.12 3.15.35-.69 2.31-2.01 4.24-3.73 5.31z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card reveal-bottom" data-delay="300">
+                        <div class="team-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="David Patel">
+                        </div>
+                        <div class="team-info">
+                            <h3>David Patel</h3>
+                            <p class="team-role">Head of Marketing</p>
+                            <p class="team-bio">David's strategic approach helps us connect with audiences and grow our brand.</p>
+                            <div class="team-social">
+                                <a href="#" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="Twitter">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Journey</h2>
+                    <p>Key milestones in our company's history</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018</div>
+                        <div class="timeline-content">
+                            <h3>Company Founded</h3>
+                            <p>Horizon was established with a team of 5 passionate individuals.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-content">
+                            <h3>First Major Client</h3>
+                            <p>Secured our first enterprise client and expanded the team to 15 members.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-content">
+                            <h3>International Expansion</h3>
+                            <p>Opened our first international office in London and launched our flagship product.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h3>Industry Recognition</h3>
+                            <p>Received multiple industry awards for innovation and excellence in design.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content">
+                            <h3>Today</h3>
+                            <p>Now a team of 100+ professionals serving clients worldwide with cutting-edge solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal-bottom">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">Team Members</div>
+                    </div>
+                    <div class="stat-card reveal-bottom" data-delay="100">
+                        <div class="stat-number" data-count="250">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card reveal-bottom" data-delay="200">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Industry Awards</div>
+                    </div>
+                    <div class="stat-card reveal-bottom" data-delay="300">
+                        <div class="stat-number" data-count="30">0</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../static/js/about-script.js"></script>
+{% endblock %}

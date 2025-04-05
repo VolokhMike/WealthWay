@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+{% block title %}Profile - WealthWay{% endblock %}
+
+{% block content %}
+    <main class="profile-page">
+        <section class="hero" style="margin-bottom: 50px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="animate-fade-in">My Finance Portfolio</h2>
+                    <p class="animate-fade-in delay-1">Explore Your Finances Journey</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-info animate-fade-in">
+                    <div class="profile-avatar">
+                        <img src="{{ photo }}">
+                    </div>
+                    <div class="profile-details">
+                        <h2>{{ username }}</h2>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-value">...</span>
+                                <span class="stat-label">Investments</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">$...</span>
+                                <span class="stat-label">Portfolio Value</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions animate-fade-in delay-1">
+                    <button class="btn btn-outline" id="editProfileBtn">Edit Profile</button>
+                </div>
+            </div>
+
+            <div class="finance-dashboard">
+                <div class="dashboard-nav animate-fade-in delay-2">
+                    <button class="tab-btn active" data-tab="expenses">Expenses</button>
+                    <button class="tab-btn" data-tab="budget">Budget</button>
+                    <button class="tab-btn" data-tab="goals">Financial Goals</button>
+                </div>
+
+                <div class="tab-content active" id="expenses">
+                    <div class="expense-header">
+                        <h3>My Expenses</h3>
+                        <button id="addExpenseBtn" class="btn btn-primary">Add Expense</button>
+                    </div>
+
+                    <div class="expense-summary">
+                        <div class="summary-card">
+                            <h4>This Month</h4>
+                            <div class="amount">$2,345</div>
+                            <div class="trend up">↑ 5% from last month</div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Average Monthly</h4>
+                            <div class="amount">$2,120</div>
+                            <div class="period">Last 6 months</div>
+                        </div>
+                    </div>
+
+                    <div class="expense-chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+
+                    <div class="expense-list-container">
+                        <table class="expense-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expenseTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="budget">
+                    <h3>Monthly Budget</h3>
+                    <div class="budget-overview">
+                        <div class="budget-card">
+                            <div class="budget-header">
+                                <h4>Total Budget</h4>
+                                <button class="edit-btn">Edit</button>
+                            </div>
+                            <div class="budget-amount">$3,500</div>
+                            <div class="budget-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 67%;"></div>
+                                </div>
+                                <div class="progress-stats">
+                                    <span>$2,345 spent</span>
+                                    <span>$1,155 remaining</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="budget-categories">
+                        <h4>Budget by Category</h4>
+                        <div class="category-list">
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <div class="category-name">Housing</div>
+                                    <div class="category-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 92%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-amounts">
+                                    <div class="spent">$1,200</div>
+                                    <div class="allocated">of $1,300</div>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <div class="category-name">Food & Dining</div>
+                                    <div class="category-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 75%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-amounts">
+                                    <div class="spent">$450</div>
+                                    <div class="allocated">of $600</div>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <div class="category-name">Transportation</div>
+                                    <div class="category-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 60%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-amounts">
+                                    <div class="spent">$180</div>
+                                    <div class="allocated">of $300</div>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <div class="category-name">Utilities</div>
+                                    <div class="category-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 83%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-amounts">
+                                    <div class="spent">$250</div>
+                                    <div class="allocated">of $300</div>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <div class="category-name">Entertainment</div>
+                                    <div class="category-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress warning" style="width: 110%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-amounts">
+                                    <div class="spent">$220</div>
+                                    <div class="allocated">of $200</div>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <div class="category-name">Other</div>
+                                    <div class="category-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 45%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-amounts">
+                                    <div class="spent">$45</div>
+                                    <div class="allocated">of $100</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="goals">
+                    <div class="goals-header">
+                        <h3>Financial Goals</h3>
+                        <button class="btn btn-primary">Add New Goal</button>
+                    </div>
+
+                    <div class="goals-grid">
+                        <div class="goal-card">
+                            <div class="goal-icon">🏠</div>
+                            <h4>Down Payment</h4>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%;"></div>
+                                </div>
+                                <div class="progress-text">65% Complete</div>
+                            </div>
+                            <div class="goal-amounts">
+                                <div class="saved">$32,500 saved</div>
+                                <div class="target">of $50,000 goal</div>
+                            </div>
+                            <div class="goal-date">Target: December 2025</div>
+                            <button class="btn btn-outline btn-sm">Update</button>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">🚗</div>
+                            <h4>New Car</h4>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%;"></div>
+                                </div>
+                                <div class="progress-text">40% Complete</div>
+                            </div>
+                            <div class="goal-amounts">
+                                <div class="saved">$12,000 saved</div>
+                                <div class="target">of $30,000 goal</div>
+                            </div>
+                            <div class="goal-date">Target: June 2026</div>
+                            <button class="btn btn-outline btn-sm">Update</button>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">✈️</div>
+                            <h4>Vacation Fund</h4>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%;"></div>
+                                </div>
+                                <div class="progress-text">85% Complete</div>
+                            </div>
+                            <div class="goal-amounts">
+                                <div class="saved">$4,250 saved</div>
+                                <div class="target">of $5,000 goal</div>
+                            </div>
+                            <div class="goal-date">Target: August 2025</div>
+                            <button class="btn btn-outline btn-sm">Update</button>
+                        </div>
+
+                        <div class="goal-card add-goal">
+                            <div class="add-icon">+</div>
+                            <h4>Add New Goal</h4>
+                            <p>Set up a new financial goal to track your progress</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Profile</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" value="{{ username }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="{{ email }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" name="bio" rows="4">{{ bio }}</textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelProfile">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/profile-script.js"></script>
+{% endblock %}

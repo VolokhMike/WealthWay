@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email - WealthWay</title>
+    <link rel="stylesheet" href="../static/css/verification-styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+	<div class="back-button">
+        <a href="{{ url_for('get_signup') }}" class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-icon">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+          </svg>
+          <span>Back</span>
+        </a>
+    </div>
+    
+      <main>
+        <section class="verification-section">
+          <div class="container">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon">
+                  <svg viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+                          fill="currentColor"/>
+                  </svg>
+                </div>
+    
+                <h1>Verify Your Email</h1>
+                {% if signup_data %}
+                  <p>We've sent a verification code to <strong id="user-email">{{ signup_data["gmail"] }}</strong></p>
+                {% else %}
+                  <p>Please enter your verification code below.</p>
+                {% endif %}
+              </div>
+    
+              {% if error_message %}
+              <div class="notification is-danger">
+                {{ error_message }}
+              </div>
+              {% endif %}
+    
+              <form id="verification-form" class="verification-form" action="{{ url_for('post_verify_code') }}" method="POST">
+                <div class="code-input-container">
+                  <div class="code-inputs">
+                    <input type="text" maxlength="1" class="code-input" id="digit1">
+                    <input type="text" maxlength="1" class="code-input" id="digit2">
+                    <input type="text" maxlength="1" class="code-input" id="digit3">
+                    <input type="text" maxlength="1" class="code-input" id="digit4">
+                    <input type="text" maxlength="1" class="code-input" id="digit5">
+                    <input type="text" maxlength="1" class="code-input" id="digit6">
+                  </div>
+                  <input type="hidden" id="verification_code" name="verification_code">
+                </div>
+    
+                <div class="code-error" id="code-error"></div>
+    
+                <button type="submit" class="btn btn-primary btn-block">Verify Email</button>
+              </form>
+    
+              <div class="verification-options">
+                <form action="{{ url_for('post_resend_code') }}" method="POST">
+                  <p>
+                    Didn't receive the code?
+                    <button type="submit" id="resend-btn" class="btn-link">Resend Code</button>
+                  </p>
+                </form>
+                <div id="countdown" style="display:none;">
+                  You can resend the code in <span id="timer">60</span> seconds
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </section>
+      </main>
+
+    <script src="../static/js/verification-script.js"></script>
+</body>
+</html>

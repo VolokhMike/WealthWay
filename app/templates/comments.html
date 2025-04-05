@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+{% block title %}Community - WealthWay{% endblock %}
+
+{% block content %}
+    <main class="community-page">
+
+        <section class="hero" style="margin-bottom: 50px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="animate-fade-in">Community Discussions</h2>
+                    <p class="animate-fade-in delay-1">Join the conversation with fellow investors and financial enthusiasts.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container">
+            <div class="community-layout">
+                <div class="main-content animate-fade-in delay-1">
+                    <div class="discussion-filters">
+                        <div class="filter-tabs">
+                            <button class="tab-btn active" data-filter="all">All Discussions</button>
+                            <button class="tab-btn" data-filter="most-rated">Most Rated</button>
+                        </div>
+                    </div>
+
+                    <div class="new-discussion">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar">
+                        </div>
+                        <div class="discussion-input">
+                            <textarea id="newDiscussionText" placeholder="Start a new discussion or ask a question..."></textarea>
+                            <div class="discussion-actions">
+                                <div class="action-buttons">
+                                    <button class="action-btn" title="Add Image">📷</button>
+                                    <button class="action-btn" title="Add Link">🔗</button>
+                                    <button class="action-btn" title="Add Poll">📊</button>
+                                </div>
+                                <button class="btn btn-primary" id="postDiscussionBtn">Post Discussion</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="discussions-list" id="discussionsList">
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn prev" disabled>Previous</button>
+                        <div class="page-numbers">
+                            <button class="page-number active">1</button>
+                            <button class="page-number">2</button>
+                            <button class="page-number">3</button>
+                            <span class="ellipsis">...</span>
+                            <button class="page-number">12</button>
+                        </div>
+                        <button class="pagination-btn next">Next</button>
+                    </div>
+                </div>
+
+                <div class="sidebar animate-fade-in delay-2">
+                    <div class="sidebar-section search-section">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search discussions...">
+                            <button class="search-btn">🔍</button>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section trending-topics">
+                        <h3>Trending Topics</h3>
+                        <ul class="topics-list">
+                            <li><a href="#">#Bitcoin</a></li>
+                            <li><a href="#">#InvestmentStrategies</a></li>
+                            <li><a href="#">#MarketCrash</a></li>
+                            <li><a href="#">#Ethereum</a></li>
+                            <li><a href="#">#PassiveIncome</a></li>
+                            <li><a href="#">#TaxSeason</a></li>
+                            <li><a href="#">#RetirementPlanning</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section top-contributors">
+                        <h3>Top Contributors</h3>
+                        <ul class="contributors-list">
+                            <li class="contributor">
+                                <div class="contributor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Contributor">
+                                </div>
+                                <div class="contributor-info">
+                                    <div class="contributor-name">Sarah Johnson</div>
+                                    <div class="contributor-stats">152 posts • 4.8 ⭐</div>
+                                </div>
+                            </li>
+                            <li class="contributor">
+                                <div class="contributor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Contributor">
+                                </div>
+                                <div class="contributor-info">
+                                    <div class="contributor-name">Michael Chen</div>
+                                    <div class="contributor-stats">98 posts • 4.9 ⭐</div>
+                                </div>
+                            </li>
+                            <li class="contributor">
+                                <div class="contributor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Contributor">
+                                </div>
+                                <div class="contributor-info">
+                                    <div class="contributor-name">Emma Rodriguez</div>
+                                    <div class="contributor-stats">87 posts • 4.7 ⭐</div>
+                                </div>
+                            </li>
+                            <li class="contributor">
+                                <div class="contributor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Contributor">
+                                </div>
+                                <div class="contributor-info">
+                                    <div class="contributor-name">David Kim</div>
+                                    <div class="contributor-stats">76 posts • 4.6 ⭐</div>
+                                </div>
+                            </li>
+                            <li class="contributor">
+                                <div class="contributor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Contributor">
+                                </div>
+                                <div class="contributor-info">
+                                    <div class="contributor-name">Lisa Patel</div>
+                                    <div class="contributor-stats">65 posts • 4.8 ⭐</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section community-rules">
+                        <h3>Community Guidelines</h3>
+                        <ul class="rules-list">
+                            <li>Be respectful and constructive in discussions</li>
+                            <li>No financial advice without proper disclaimers</li>
+                            <li>No promotion of specific investments</li>
+                            <li>No spam or excessive self-promotion</li>
+                            <li>Respect others' privacy and personal information</li>
+                        </ul>
+                        <a href="#" class="view-all-link">View All Guidelines</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../static/js/comments-script.js"></script>
+{% endblock %}

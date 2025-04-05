@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+{% block title %}WealthWay - Crypto Market Insights{% endblock %}
+
+{% block content%}
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="animate-fade-in">Stay Ahead in the Crypto Market</h2>
+                    <p class="animate-fade-in delay-1">Track your investments, manage expenses, and stay updated with the latest market trends.</p>
+                    <div class="market-summary animate-fade-in delay-2">
+                        <div class="market-item up">
+                            <span class="coin">BTC</span>
+                            <span class="price">$65,432</span>
+                            <span class="change">+2.4%</span>
+                        </div>
+                        <div class="market-item down">
+                            <span class="coin">ETH</span>
+                            <span class="price">$3,245</span>
+                            <span class="change">-0.8%</span>
+                        </div>
+                        <div class="market-item up">
+                            <span class="coin">SOL</span>
+                            <span class="price">$142</span>
+                            <span class="change">+5.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <div class="container">
+                <h2>Latest Market News</h2>
+                <div class="news-filter">
+                    <button class="active" data-filter="all">All</button>
+                    <button data-filter="bitcoin">Bitcoin</button>
+                    <button data-filter="ethereum">Ethereum</button>
+                    <button data-filter="altcoins">Altcoins</button>
+                    <button data-filter="defi">DeFi</button>
+                </div>
+                <button class="load-more">Load More News</button>
+            </div>
+        </section>
+
+        <section class="market-trends">
+            <div class="container">
+                <h2>Market Trends</h2>
+                <div class="trends-container">
+                    <div class="trend-chart">
+                        <h3>Bitcoin 7-Day Price</h3>
+                        <div class="chart-container">
+                            <canvas id="bitcoinChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="market-highlights">
+                        <h3>Highlights</h3>
+                        <ul class="highlights-list">
+                            <li class="highlight-item">
+                                <div class="highlight-icon green">↗</div>
+                                <div class="highlight-content">
+                                    <h4>Bitcoin Surges Past $65K</h4>
+                                    <p>Bitcoin reached a new monthly high as institutional investors increase positions.</p>
+                                </div>
+                            </li>
+                            <li class="highlight-item">
+                                <div class="highlight-icon red">↘</div>
+                                <div class="highlight-content">
+                                    <h4>Ethereum Gas Fees Drop</h4>
+                                    <p>Average transaction costs on Ethereum network decreased by 30% this week.</p>
+                                </div>
+                            </li>
+                            <li class="highlight-item">
+                                <div class="highlight-icon blue">i</div>
+                                <div class="highlight-content">
+                                    <h4>New Regulatory Framework</h4>
+                                    <p>SEC announces new guidelines for cryptocurrency exchanges and DeFi platforms.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../static/js/main-script.js"></script>
+{% endblock %}

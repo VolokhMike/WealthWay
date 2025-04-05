@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+{% block title %}Investments - WealthWay{% endblock %}
+    
+{% block content %}
+    <main class="investments-page">
+
+        <section class="hero" style="margin-bottom: 50px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="animate-fade-in">My Investment Portfolio</h2>
+                    <p class="animate-fade-in delay-1">Explore Your Investment Journey</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="page-header animate-fade-in">
+                <h2></h2>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="addInvestmentBtn">Add Investment</button>
+                </div>
+            </div>
+
+            <div class="portfolio-overview animate-fade-in delay-1">
+                <div class="overview-card total-value">
+                    <h3>Total Portfolio Value</h3>
+                    <div class="value">$28,450.32</div>
+                    <div class="change up">+$1,245.80 (4.58%)</div>
+                    <div class="period">Last 30 days</div>
+                </div>
+                <div class="overview-card allocation">
+                    <h3>Asset Allocation</h3>
+                    <div class="allocation-chart">
+                        <canvas id="allocationChart"></canvas>
+                    </div>
+                </div>
+                <div class="overview-card performance">
+                    <h3>Performance</h3>
+                    <div class="performance-stats">
+                        <div class="stat">
+                            <span class="label">Today</span>
+                            <span class="value up">+1.2%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">1 Week</span>
+                            <span class="value up">+3.5%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">1 Month</span>
+                            <span class="value up">+4.6%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">3 Months</span>
+                            <span class="value down">-2.1%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">1 Year</span>
+                            <span class="value up">+18.7%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">All Time</span>
+                            <span class="value up">+42.3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="investments-container animate-fade-in delay-2">
+                <div class="investments-header">
+                    <h3>My Investments</h3>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">Grid View</button>
+                        <button class="view-btn" data-view="table">Table View</button>
+                    </div>
+                </div>
+
+                <div class="investments-filters">
+                    <div class="filter-group">
+                        <label for="assetFilter">Asset Type:</label>
+                        <select id="assetFilter">
+                            <option value="all">All Assets</option>
+                            <option value="crypto">Cryptocurrency</option>
+                            <option value="stocks">Stocks</option>
+                            <option value="etf">ETFs</option>
+                            <option value="bonds">Bonds</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="performanceFilter">Performance:</label>
+                        <select id="performanceFilter">
+                            <option value="all">All</option>
+                            <option value="profit">Profitable</option>
+                            <option value="loss">Loss</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortInvestments">Sort By:</label>
+                        <select id="sortInvestments">
+                            <option value="value-desc">Value (Highest)</option>
+                            <option value="value-asc">Value (Lowest)</option>
+                            <option value="performance-desc">Performance (Best)</option>
+                            <option value="performance-asc">Performance (Worst)</option>
+                            <option value="date-desc">Purchase Date (Newest)</option>
+                            <option value="date-asc">Purchase Date (Oldest)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="view-content grid-view active" id="investmentsGrid">
+                </div>
+
+                <div class="view-content table-view" id="investmentsTable">
+                    <table class="investments-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Type</th>
+                                <th>Purchase Date</th>
+                                <th>Purchase Price</th>
+                                <th>Quantity</th>
+                                <th>Current Price</th>
+                                <th>Current Value</th>
+                                <th>Profit/Loss</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="investmentsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="investment-history animate-fade-in delay-3">
+                <h3>Transaction History</h3>
+                <div class="history-filters">
+                    <div class="filter-group">
+                        <label for="transactionType">Type:</label>
+                        <select id="transactionType">
+                            <option value="all">All Transactions</option>
+                            <option value="buy">Buy</option>
+                            <option value="sell">Sell</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateRange">Date Range:</label>
+                        <select id="dateRange">
+                            <option value="30-days">Last 30 Days</option>
+                            <option value="90-days">Last 90 Days</option>
+                            <option value="year">This Year</option>
+                            <option value="all-time">All Time</option>
+                        </select>
+                    </div>
+                </div>
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Asset</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionHistoryBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="investmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Investment</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="investmentForm">
+                <div class="form-group">
+                    <label for="assetName">Asset Name</label>
+                    <input type="text" id="assetName" placeholder="e.g., Bitcoin, Apple Inc., S&P 500 ETF" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetSymbol">Symbol/Ticker</label>
+                    <input type="text" id="assetSymbol" placeholder="e.g., BTC, AAPL, SPY" required>
+                </div>
+                <div class="form-group">
+                    <label for="assetType">Asset Type</label>
+                    <select id="assetType" required>
+                        <option value="">Select asset type</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="stock">Stock</option>
+                        <option value="etf">ETF</option>
+                        <option value="bond">Bond</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="purchaseDate">Purchase Date</label>
+                    <input type="date" id="purchaseDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="purchasePrice">Purchase Price per Unit ($)</label>
+                    <input type="number" id="purchasePrice" min="0.0001" step="0.0001" placeholder="0.00" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" min="0.0001" step="0.0001" placeholder="0.00" required>
+                </div>
+                <div class="form-group">
+                    <label for="fees">Fees/Commission ($)</label>
+                    <input type="number" id="fees" min="0" step="0.01" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" placeholder="Add any additional details about this investment"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancelInvestment">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Investment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/investments-script.js"></script>
+{% endblock %}
