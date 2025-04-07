@@ -168,8 +168,8 @@ def post_verify_code():
         conn.commit()
         user_id = curs.lastrowid
 
-        curs.execute("INSERT INTO profile (user_id, photo, description) VALUES (?, ?, ?)", 
-                     (user_id, "", ""))
+        curs.execute("INSERT INTO profile (user_id, photo) VALUES (?, ?)", 
+                     (user_id, ""))
         conn.commit()
         conn.close()
 

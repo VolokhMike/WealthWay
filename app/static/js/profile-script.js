@@ -8,45 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initExpenseModal();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const editProfileBtn = document.getElementById('editProfileBtn');
-    const profileModal = document.getElementById('profileModal');
-    const closeModalBtn = profileModal.querySelector('.close-modal');
-    const cancelProfileBtn = profileModal.getElementById('cancelProfile');
-    const profileForm = document.getElementById('profileForm');
-
-    if (editProfileBtn && profileModal && closeModalBtn && cancelProfileBtn && profileForm) {
-        editProfileBtn.addEventListener('click', function() {
-            profileModal.style.display = 'flex'; // Показать модальное окно
-        });
-
-        closeModalBtn.addEventListener('click', function() {
-            profileModal.style.display = 'none'; // Скрыть модальное окно
-        });
-
-        cancelProfileBtn.addEventListener('click', function() {
-            profileModal.style.display = 'none'; // Скрыть модальное окно
-        });
-
-        // Необязательно: Закрыть модальное окно, если пользователь кликнет за его пределами
-        window.addEventListener('click', function(event) {
-            if (event.target === profileModal) {
-                profileModal.style.display = 'none';
-            }
-        });
-
-        // Обработчик отправки формы профиля
-        profileForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Предотвратить стандартную отправку формы
-            // Здесь вы добавите свою логику для отправки обновленных данных профиля на сервер
-            console.log('Форма профиля отправлена');
-            // После успешной отправки вы можете скрыть модальное окно:
-            profileModal.style.display = 'none';
-        });
-    } else {
-        console.error('Один или несколько необходимых элементов для функциональности редактирования профиля отсутствуют.');
-    }
-});
 function initTabs() {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');

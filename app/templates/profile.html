@@ -30,18 +30,20 @@
                         <h2>{{ username }}</h2>
                         <div class="profile-stats">
                             <div class="stat">
-                                <span class="stat-value">...</span>
+                                <span class="stat-value">{{ investments }}</span>
                                 <span class="stat-label">Investments</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-value">$...</span>
+                                <span class="stat-value">${{ portfolio_value }}</span>
                                 <span class="stat-label">Portfolio Value</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="profile-actions animate-fade-in delay-1">
-                    <button class="btn btn-outline" id="editProfileBtn">Edit Profile</button>
+                    <a href="{{ url_for('get_edit_profile') }}" class="btn btn-outline">
+                        Edit Profile
+                    </a>
                 </div>
             </div>
 
@@ -55,7 +57,11 @@
                 <div class="tab-content active" id="expenses">
                     <div class="expense-header">
                         <h3>My Expenses</h3>
-                        <button id="addExpenseBtn" class="btn btn-primary">Add Expense</button>
+                        <div class="profile-actions animate-fade-in delay-1">
+                            <a href="{{ url_for('get_add_expense') }}" class="btn btn-outline">
+                                Add expense
+                            </a>
+                        </div>
                     </div>
 
                     <div class="expense-summary">
@@ -83,7 +89,6 @@
                                     <th>Description</th>
                                     <th>Category</th>
                                     <th>Amount</th>
-                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody id="expenseTableBody">
@@ -268,6 +273,7 @@
                             <p>Set up a new financial goal to track your progress</p>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

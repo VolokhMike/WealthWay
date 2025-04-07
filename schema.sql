@@ -10,7 +10,6 @@ CREATE TABLE IF NOT EXISTS profile (
       profile_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
       user_id INTEGER NOT NULL UNIQUE,
       photo TEXT,
-      description TEXT,
       investments INTEGER,
       portfolio_value INTEGER,
       FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
@@ -33,23 +32,24 @@ CREATE TABLE IF NOT EXISTS feedback (
       FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS invest (
+CREATE TABLE IF NOT EXISTS invests (
       invest_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
       user_id INTEGER NOT NULL UNIQUE,
-      invest_name TEXT NOT NULL,
-      symbol TEXT NOT NULL,
-      asset_type  INTEGER NOT NULL,
+      asset TEXT NOT NULL,
+      type TEXT NOT NULL,
+      quantity INTEGER NOT NULL,
       date DATA NOT NULL,
       price INTEGER NOT NULL,
-      quantity INTEGER NOT NULL,
-      commission INTEGER NOT NULL,
-      notes TEXT,
+      current_price INTEGER NOT NULL,
+      purchase_price INTEGER NOT NULL,
+      current_value INTEGER NOT NULL,
+      profit INTEGER NOT NULL,
       FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 
-CREATE TABLE IF NOT EXISTS finance-goals (
-      finance-goals_id  INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+CREATE TABLE IF NOT EXISTS finance_goals (
+      finance_goals_id  INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
       user_id INTEGER NOT NULL UNIQUE,
       goal_name TEXT,
       goal_price INTEGER,

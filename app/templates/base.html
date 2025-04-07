@@ -43,7 +43,7 @@
 
                 {% if session.get('username') %}
                     <div class="navbar-actions">
-                        <a href="{{ url_for('get_logout')}}" class="btn btn-primary" onclick="event.preventDefault(); confirmLogout(this);">Logout</a>
+                        <a href="{{ url_for('get_logout')}}" class="btn btn-primary">Logout</a>
                     </div>
                 {% else %}
                     <div class="navbar-actions">

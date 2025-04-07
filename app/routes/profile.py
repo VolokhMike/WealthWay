@@ -13,7 +13,7 @@ def get_profile():
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT users.username, profile.photo, profile.description
+        SELECT users.username, profile.photo, profile.investments, profile.portfolio_value
         FROM users 
         LEFT JOIN profile ON users.user_id = profile.user_id 
         WHERE users.user_id = ?""", (user_id,))
@@ -21,12 +21,12 @@ def get_profile():
     conn.close()
     
     if profile:
-        username, photo, description = profile
+        username, photo, investments, portfolio_value = profile
     else:
-        username, photo, description = current_user.username, "", ""
+        username, photo, investments, portfolio_value = current_user.username, "", ""
     
     
-    return render_template("profile.html", username=username, photo=photo, description=description)
+    return render_template("profile.html", username=username, photo=photo, investments=investments, portfolio_value=portfolio_value)
 
 
 @app.get("/edit_profile/")
@@ -39,7 +39,7 @@ def get_edit_profile():
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT users.username, profile.photo, profile.description 
+        SELECT users.username, profile.photo, profile.investments, profile.portfolio_value
         FROM users 
         LEFT JOIN profile ON users.user_id = profile.user_id 
         WHERE users.user_id = ?""", (current_user.user_id,))
@@ -47,11 +47,11 @@ def get_edit_profile():
     conn.close()
 
     if profile:
-        username, photo, description = profile
+        username, photo, investments, portfolio_value = profile
     else:
-        username, photo, description = current_user.username, "", ""
+        username, photo, investments, portfolio_value = current_user.username, "", ""
     
-    return render_template("edit_profile.html", username=username, photo=photo, description=description)
+    return render_template("edit-profile.html", username=username, photo=photo, investments=investments, portfolio_value=portfolio_value)
 
 
 @app.post("/edit_profile/")
@@ -68,15 +68,14 @@ def post_edit_profile():
     profile_exists = cursor.fetchone()
 
     if profile_exists:
-        cursor.execute("UPDATE profile SET photo = ?, description = ? WHERE user_id = ?", 
-                       (request.form["photo"], request.form["description"], current_user.user_id))
+        cursor.execute("UPDATE profile SET photo = ?, investments = ?, portfolio_value = ? WHERE user_id = ?", 
+                       (request.form["photo"], request.form["investments"], request.form["portfolio_value"], current_user.user_id))
     else:
-        cursor.execute("INSERT INTO profile (user_id, photo, description) VALUES (?, ?, ?)", 
-                       (current_user.user_id, request.form["photo"], request.form["description"]))
+        cursor.execute("INSERT INTO profile (user_id, photo, investments, portfolio_value) VALUES (?, ?, ?, ?)", 
+                       (current_user.user_id, request.form["photo"], request.form["investments"], request.form["portfolio_value"]))
     conn.commit()
     conn.close()
     return redirect(url_for("get_profile"))
-
 
 @app.post("/delete_account/<int:user_id>")
 @login_required

@@ -48,14 +48,8 @@
               <form id="verification-form" class="verification-form" action="{{ url_for('post_verify_code') }}" method="POST">
                 <div class="code-input-container">
                   <div class="code-inputs">
-                    <input type="text" maxlength="1" class="code-input" id="digit1">
-                    <input type="text" maxlength="1" class="code-input" id="digit2">
-                    <input type="text" maxlength="1" class="code-input" id="digit3">
-                    <input type="text" maxlength="1" class="code-input" id="digit4">
-                    <input type="text" maxlength="1" class="code-input" id="digit5">
-                    <input type="text" maxlength="1" class="code-input" id="digit6">
+                    <input type="text" maxlength="6" class="code-input" id="verification_code" name="verification_code">
                   </div>
-                  <input type="hidden" id="verification_code" name="verification_code">
                 </div>
     
                 <div class="code-error" id="code-error"></div>

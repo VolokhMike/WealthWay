@@ -162,7 +162,6 @@ main {
 	font-size: 1rem;
 }
 
-/* Verification Form */
 .verification-form {
 	margin-bottom: 2rem;
 }
@@ -179,7 +178,7 @@ main {
 }
 
 .code-input {
-	width: 3.5rem;
+	width: 35rem;
 	height: 3.5rem;
 	border: 1px solid var(--border-color);
 	border-radius: 0.375rem;
