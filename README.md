@@ -123,8 +123,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- 📧 Email: your.email@example.com
-- 💼 LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+- 📧 Email: mikimv09@gmail.com or ukr.vadya@gmail.com
 - 🌐 Website: [yourwebsite.com](https://yourwebsite.com)
 
 ---
